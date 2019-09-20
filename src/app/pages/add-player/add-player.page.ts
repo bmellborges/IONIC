@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Player } from 'src/app/model/player';
 
 @Component({
   selector: 'app-add-player',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPlayerPage implements OnInit {
 
+  protected player: Player = new Player;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onsubmit(form){
+    //monte seu codico de cadastro....
   }
 
 }
