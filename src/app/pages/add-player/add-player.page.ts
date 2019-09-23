@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from 'src/app/model/player';
+import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
   selector: 'app-add-player',
@@ -10,13 +11,22 @@ export class AddPlayerPage implements OnInit {
 
   protected player: Player = new Player;
 
-  constructor() { }
+  constructor(
+    protected playerService:PlayerService,
+  ) { }
 
   ngOnInit() {
   }
 
   onsubmit(form){
-    //monte seu codico de cadastro....
+    this.playerService.save(this.player).then(
+      res=>{
+        console.log("Cadastrado!");
+      },
+      erro=>{
+        console.log("Erro: " + erro);
+      }
+    )
   }
 
 }
