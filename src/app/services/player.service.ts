@@ -27,9 +27,9 @@ export class PlayerService {
   gelAll() {
     return this.fire.collection("players").snapshotChanges()
       .pipe(
-        map(dados => {
+        map(dados =>
           dados.map(d => ({ key: d.payload.doc.id, ...d.payload.doc.data() }))
-        })
+        )
       )
   }
 }
