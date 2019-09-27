@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig:{
-    apiKey: "AIzaSyAT2m-BIWf3gqJd-g6o1zVP5UaKi-94NjQ",
-    authDomain: "sharegames-acba6.firebaseapp.com",
-    databaseURL: "https://sharegames-acba6.firebaseio.com",
-    projectId: "sharegames-acba6",
+    apiKey: "AIzaSyBBRf3-G29hqd_843-o6FVBm9H8940pnHQ",
+    authDomain: "app-game-e36e0.firebaseapp.com",
+    databaseURL: "https://app-game-e36e0.firebaseio.com",
+    projectId: "app-game-e36e0",
     storageBucket: "",
-    messagingSenderId: "36898137449",
-    appId: "1:36898137449:web:d849f9bf1b9149642309f8"
+    messagingSenderId: "841702219252",
+    appId: "1:841702219252:web:c39a43fc7c6da36b222da1",
+    measurementId: "G-L689KBK99K"
   }
 };
 

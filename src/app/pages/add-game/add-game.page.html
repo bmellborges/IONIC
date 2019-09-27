@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro dos Jogos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="game.nome" name="nome" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">categoria</ion-label>
+      <ion-input type="text" [(ngModel)]="game.categoria" name="categoria" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">console</ion-label>
+      <ion-input type="text" [(ngModel)]="game.console" name="console" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">descricao</ion-label>
+      <ion-input type="text" [(ngModel)]="game.descricao" name="descricao" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">quantidade</ion-label>
+      <ion-input type="number" [(ngModel)]="game.quant" name="quant" required ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">valor</ion-label>
+      <ion-input type="number" [(ngModel)]="game.valor" name="valor" required ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button type="submit" color="primary">Salvar</ion-button>
+      <ion-button type="reset" color="danger">Cancelar</ion-button>
+    </ion-item>
+  </form>
+</ion-content>
