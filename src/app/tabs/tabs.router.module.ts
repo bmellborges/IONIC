@@ -8,12 +8,12 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../pages/home/home.module').then(m => m.HomePageModule)
           }
         ]
       },
@@ -38,37 +38,64 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
-          }
-        ]
-      },
-      {
         path: 'addPlayer',
         children: [
           {
             path: '',
             loadChildren: () => import('../pages/add-player/add-player.module').then(m => m.AddPlayerPageModule)
-            
+
             //loadChildren: '../pages/add-player/add-player.module#AddPlayerPageModule'
           }
         ]
       },
-      
+      {
+        path: 'addPlayer/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/add-player/add-player.module').then(m => m.AddPlayerPageModule)
+          }
+        ]
+      },
+      {
+        path: 'listGame',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/list-game/list-game.module').then(m => m.ListGamePageModule)
+          }
+        ]
+      },
+      {
+        path: 'perfilGame/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/perfil-game/perfil-game.module').then(m => m.PerfilGamePageModule)
+          }
+        ]
+      },
+      {
+        path: 'addGame',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/add-game/add-game.module').then(m => m.AddGamePageModule)
+          }
+        ]
+      },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];
@@ -77,4 +104,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
