@@ -1,11 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-<<<<<<< HEAD
       Jogos
-=======
-      Games
->>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,7 +13,6 @@
     </ion-fab-button>
   </ion-fab>
 
-<<<<<<< HEAD
   <ion-list *ngIf="game">
     <ion-item *ngFor="let p of game" routerLink="/tabs/perfilGame/{{p.key}}">
       <ion-avatar slot="start">
@@ -25,33 +20,16 @@
       </ion-avatar>
       <ion-label>{{ p.nome }}</ion-label>
       <ion-text>{{ p.descricao }}</ion-text>
-=======
-  <ion-list *ngIf="games">
-    <ion-item *ngFor="let g of games" routerLink="/tabs/perfilGame/{{g.key}}">
-      <ion-avatar slot="start">
-        <img src="https://picsum.photos/100">
-      </ion-avatar>
-      <ion-label>{{ g.nome }}</ion-label>
-      <ion-text>{{ g.descricao }}</ion-text>
->>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
     </ion-item>
   </ion-list>
 
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-<<<<<<< HEAD
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
       pullingText="Pull to refresh"
       refreshingSpinner="circles"
-=======
-    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
->>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
 
-<<<<<<< HEAD
 <ion-content>
-=======
-  <ion-content>
->>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c

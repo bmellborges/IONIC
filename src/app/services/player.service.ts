@@ -13,6 +13,18 @@ export class PlayerService {
     protected fire: AngularFirestore
   ) { }
 
+
+  gelAll() {
+    return this.fire.collection("players").snapshotChanges()
+      .pipe(
+        map(dados =>
+          dados.map(d => ({ key: d.payload.doc.id, ...d.payload.doc.data() }))
+        )
+      )
+  }
+  get(id) {
+    return this.fire.collection("players").doc<Player>(id).valueChanges();
+  }
   save(player) {
     return this.fire.collection("players")
       .add({
@@ -24,21 +36,12 @@ export class PlayerService {
       });
   }
 
-  gelAll() {
-    return this.fire.collection("players").snapshotChanges()
-      .pipe(
-        map(dados =>
-          dados.map(d => ({ key: d.payload.doc.id, ...d.payload.doc.data() }))
-        )
-      )
-  }
-
-  get(id) {
-    return this.fire.collection("players").doc<Player>(id).valueChanges();
-  }
-
   update(player: Player, id: string) {
     return this.fire.collection("players").doc<Player>(id)
       .update(player);
+  }
+
+  remove(player) {
+    return this.fire.collection("players").doc(player.key).delete();
   }
 }

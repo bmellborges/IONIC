@@ -38,7 +38,6 @@ const routes: Routes = [
         ]
       },
       {
-<<<<<<< HEAD
         path: 'listGame',
         children: [
           {
@@ -55,15 +54,6 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../pages/perfil-player/perfil-player.module').then(m => m.PerfilPlayerPageModule)
-=======
-        path: 'addPlayer',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../pages/add-player/add-player.module').then(m => m.AddPlayerPageModule)
-
-            //loadChildren: '../pages/add-player/add-player.module#AddPlayerPageModule'
->>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
           }
         ]
       },
@@ -77,46 +67,16 @@ const routes: Routes = [
         ]
       },
       {
-<<<<<<< HEAD
         path: 'addGame',
-=======
-        path: 'listGame',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/list-game/list-game.module').then(m => m.ListGamePageModule)
-          }
-        ]
-      },
-      {
-        path: 'perfilGame/:id',
->>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-<<<<<<< HEAD
               import('../pages/add-game/add-game.module').then(m => m.AddGamePageModule)
           }
         ]
       },
       
-=======
-              import('../pages/perfil-game/perfil-game.module').then(m => m.PerfilGamePageModule)
-          }
-        ]
-      },
-      {
-        path: 'addGame',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../pages/add-game/add-game.module').then(m => m.AddGamePageModule)
-          }
-        ]
-      },
->>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
       {
         path: '',
         redirectTo: '/tabs/home',
