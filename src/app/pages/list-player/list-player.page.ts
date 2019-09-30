@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/services/player.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-
+import { Player } from '../../model/player';
 
 @Component({
   selector: 'app-list-player',
@@ -24,16 +24,7 @@ export class ListPlayerPage implements OnInit {
   }
 
   apagar(player) {
-    this.playerService.remove(player).then(
-      res => {
-        this.presentAlert("Aviso", "Apagado com sucesso!"),
-          this.refreshPlayers()
-      }
-    ),
-      erro => {
-        this.presentAlert("Erro", "Ao apagar o item!"),
-          this.refreshPlayers()
-      }
+    this.presentAlertConfirm(player);
   }
 
   editar(player) {
@@ -61,7 +52,8 @@ export class ListPlayerPage implements OnInit {
       }
     )
   }
-  //alerta
+
+  //Alerts-------------------
   async presentAlert(tipo: string, texto: string) {
     const alert = await this.alertController.create({
       header: tipo,
@@ -71,4 +63,36 @@ export class ListPlayerPage implements OnInit {
     });
     await alert.present();
   }
+
+async presentAlertConfirm(player) {
+  const alert = await this.alertController.create({
+    header: 'Deletar dados',
+    message: 'Apagar dados do <strong>usuário</strong>?',
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'cancel',
+        cssClass: 'secondary',
+        handler: (blah) => {
+          console.log('Confirm Cancel: blah');
+        }
+      }, {
+        text: 'Confirmar',
+        handler: () => {
+          this.playerService.remove(player).then(
+            res => {
+              this.presentAlert("Aviso", "Apagado com sucesso!"),
+                this.refreshPlayers()
+            }
+          ),
+            erro => {
+              this.presentAlert("Erro", "Ao apagar o item!");
+            }
+        }
+      }
+    ]
+  });
+
+  await alert.present();
+}
 }

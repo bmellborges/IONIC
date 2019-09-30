@@ -39,7 +39,7 @@ export class AddPlayerPage implements OnInit {
         res => {
           form.reset();
           this.player = new Player;
-          //+console.log("Cadastrado!");
+          //console.log("Cadastrado!");
           this.presentAlert("Aviso", "Cadastrado!")
           this.router.navigate(['/tabs/listPlayer']);
         },
@@ -62,7 +62,6 @@ export class AddPlayerPage implements OnInit {
         }
       )
     }
-
   }
   //Alerts-------------------
   async presentAlert(tipo: string, texto: string) {

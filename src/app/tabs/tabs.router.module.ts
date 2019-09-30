@@ -18,6 +18,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'addPlayer/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/add-player/add-player.module').then(m => m.AddPlayerPageModule)
+          }
+        ]
+      },
+      {
         path: 'listPlayer',
         children: [
           {
@@ -38,6 +47,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'addGame',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/add-game/add-game.module').then(m => m.AddGamePageModule)
+          }
+        ]
+      },
+      {
         path: 'listGame',
         children: [
           {
@@ -53,30 +72,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/perfil-player/perfil-player.module').then(m => m.PerfilPlayerPageModule)
+              import('../pages/perfil-game/perfil-game.module').then(m => m.PerfilGamePageModule)
           }
         ]
       },
-      {
-        path: 'addPlayer/:id',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../pages/add-player/add-player.module').then(m => m.AddPlayerPageModule)
-          }
-        ]
-      },
-      {
-        path: 'addGame',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../pages/add-game/add-game.module').then(m => m.AddGamePageModule)
-          }
-        ]
-      },
-      
+
       {
         path: '',
         redirectTo: '/tabs/home',
