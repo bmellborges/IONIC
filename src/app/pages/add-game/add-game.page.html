@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar>
+<<<<<<< HEAD
     <ion-title>Cadastro dos Jogos</ion-title>
+=======
+    <ion-title>Cadastro do Game</ion-title>
+>>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
   </ion-toolbar>
 </ion-header>
 
@@ -12,21 +16,34 @@
     </ion-item>
 
     <ion-item>
+<<<<<<< HEAD
       <ion-label position="floating">categoria</ion-label>
+=======
+      <ion-label position="floating">Categoria</ion-label>
+>>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
       <ion-input type="text" [(ngModel)]="game.categoria" name="categoria" required></ion-input>
     </ion-item>
 
     <ion-item>
+<<<<<<< HEAD
       <ion-label position="floating">console</ion-label>
+=======
+      <ion-label position="floating">Console</ion-label>
+>>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
       <ion-input type="text" [(ngModel)]="game.console" name="console" required></ion-input>
     </ion-item>
 
     <ion-item>
+<<<<<<< HEAD
       <ion-label position="floating">descricao</ion-label>
+=======
+      <ion-label position="floating">Decrição</ion-label>
+>>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
       <ion-input type="text" [(ngModel)]="game.descricao" name="descricao" required></ion-input>
     </ion-item>
 
     <ion-item>
+<<<<<<< HEAD
       <ion-label position="floating">quantidade</ion-label>
       <ion-input type="number" [(ngModel)]="game.quant" name="quant" required ></ion-input>
     </ion-item>
@@ -38,6 +55,19 @@
 
     <ion-item lines="none">
       <ion-button type="submit" color="primary">Salvar</ion-button>
+=======
+      <ion-label position="floating">Quantidade</ion-label>
+      <ion-input type="number" [(ngModel)]="game.quant" name="quant" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Valor</ion-label>
+      <ion-input type="number" [(ngModel)]="game.valor" name="valor" required></ion-input>
+    </ion-item>
+   
+    <ion-item lines="none">
+      <ion-button type="submit" color="primary" [disabled]="fc.invalid">Salvar</ion-button>
+>>>>>>> 7ab34fae268103f5db7a6b4824bac95098af186c
       <ion-button type="reset" color="danger">Cancelar</ion-button>
     </ion-item>
   </form>
