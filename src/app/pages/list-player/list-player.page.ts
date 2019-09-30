@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/services/player.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list-player',
@@ -13,22 +14,28 @@ export class ListPlayerPage implements OnInit {
 
   constructor(
     protected playerService: PlayerService,
-    private router: Router
+    private router: Router,
+    protected alertController: AlertController
   ) { }
 
   ngOnInit() {
-    this.playerService.gelAll().subscribe(
+    this.refreshPlayers();
+  }
+
+  apagar(player) {
+    this.playerService.remove(player).then(
       res => {
-        this.players = res;
+        this.presentAlert("Aviso", "Apagado com sucesso!");
+        this.refreshPlayers();
+      },
+      erro => {
+        this.presentAlert("Erro", "Ao apagar o item!");
       }
     )
   }
 
-  apagar(player) {
-  }
-
   editar(player) {
-    this.router.navigate(['/tabs/addPlayer/' , player.key])
+    this.router.navigate(['/tabs/addPlayer/', player.key])
   }
 
   async doRefresh(event) {
@@ -42,5 +49,24 @@ export class ListPlayerPage implements OnInit {
         }, 500);
       }
     );
+  }
+
+  refreshPlayers() {
+    this.playerService.gelAll().subscribe(
+      res => {
+        this.players = res;
+      }
+    )
+  }
+
+  //Alerts-------------------
+  async presentAlert(tipo: string, texto: string) {
+    const alert = await this.alertController.create({
+      header: tipo,
+      //subHeader: 'Subtitle',
+      message: texto,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }
