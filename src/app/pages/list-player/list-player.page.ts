@@ -22,19 +22,7 @@ export class ListPlayerPage implements OnInit {
     this.refreshPlayers();
   }
 
-  apagar(player) {
-    this.playerService.remove(player).then(
-      res => {
-        this.presentAlert("Aviso", "Apagado com sucesso!");
-        this.refreshPlayers();
-      },
-      erro => {
-        this.presentAlert("Erro", "Ao apagar o item!");
-      }
-    )
-  }
-
-  editar(player) {
+   editar(player) {
     this.router.navigate(['/tabs/addPlayer/', player.key])
   }
 
@@ -66,6 +54,37 @@ export class ListPlayerPage implements OnInit {
       //subHeader: 'Subtitle',
       message: texto,
       buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  async apagar(player) {
+    const alert = await this.alertController.create({
+      header: 'Apagar dados!',
+      message: 'Apagar todos os dados do Player',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Sim',
+          handler: () => {
+            this.playerService.remove(player).then(
+              res => {
+                this.presentAlert("Aviso", "Apagado com sucesso!");
+                this.refreshPlayers();
+              },
+              erro => {
+                this.presentAlert("Erro", "Ao apagar o item!");
+              }
+            )
+          }
+        }
+      ]
     });
     await alert.present();
   }
