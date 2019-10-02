@@ -3,6 +3,7 @@ import { Player } from 'src/app/model/player';
 import { PlayerService } from 'src/app/services/player.service';
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'app-add-player',
@@ -18,7 +19,8 @@ export class AddPlayerPage implements OnInit {
     protected playerService: PlayerService,
     protected alertController: AlertController,
     protected activedRoute: ActivatedRoute,
-    protected router: Router
+    protected router: Router,
+    private camera: Camera
   ) { }
 
   ngOnInit() {
@@ -63,6 +65,26 @@ export class AddPlayerPage implements OnInit {
       )
     }
   }
+
+  tirarFoto() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      console.log(base64Image);
+    }, (err) => {
+      // Handle error
+    });
+  }
+
+
   //Alerts-------------------
   async presentAlert(tipo: string, texto: string) {
     const alert = await this.alertController.create({
