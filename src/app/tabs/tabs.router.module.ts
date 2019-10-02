@@ -27,6 +27,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'addPlayer',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/add-player/add-player.module').then(m => m.AddPlayerPageModule)
+          }
+        ]
+      },
+      {
         path: 'listPlayer',
         children: [
           {
@@ -38,6 +47,16 @@ const routes: Routes = [
       },
       {
         path: 'perfilPlayer/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/perfil-player/perfil-player.module').then(m => m.PerfilPlayerPageModule)
+          }
+        ]
+      },
+      {
+        path: 'perfilPlayer',
         children: [
           {
             path: '',
@@ -68,6 +87,16 @@ const routes: Routes = [
       },
       {
         path: 'perfilGame/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pages/perfil-game/perfil-game.module').then(m => m.PerfilGamePageModule)
+          }
+        ]
+      },
+      {
+        path: 'perfilGame',
         children: [
           {
             path: '',

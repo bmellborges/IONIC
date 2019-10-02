@@ -6,10 +6,10 @@
 </ion-header>
 
 <ion-content>
-  
-  <ion-button (click)="tirarFoto()">
-    <ion-icon slot="icon-only" name="camera"></ion-icon>
-  </ion-button>
+  <ion-item>
+    <img class="foto" src="assets/icon/favicon.png" alt="foto perfil" (click)="tirarFoto()" *ngIf="!preview">
+    <img class="foto" [src]="preview" alt="foto perfil" (click)="tirarFoto()" *ngIf="preview">
+  </ion-item>
 
   <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
     <ion-item>

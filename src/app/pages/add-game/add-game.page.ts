@@ -31,7 +31,7 @@ export class AddGamePage implements OnInit {
         this.game = new Game;
         //+console.log("Cadastrado!");
         this.presentAlert("Aviso", "Cadastrado!")
-        this.router.navigate(['/tabs/listPlayer']);
+        this.router.navigate(['/tabs/listGame']);
       },
       erro => {
         console.log("Erro: " + erro);
