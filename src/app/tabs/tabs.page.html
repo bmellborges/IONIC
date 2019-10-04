@@ -8,7 +8,7 @@
 
     <ion-tab-button tab="listPlayer">
       <ion-icon name="contacts"></ion-icon>
-      <ion-badge color="danger">666</ion-badge>
+      <ion-badge color="danger" *ngIf="quantPlayer > 0">{{quantPlayer}}</ion-badge>
       <ion-label>Players</ion-label>
     </ion-tab-button>
 
